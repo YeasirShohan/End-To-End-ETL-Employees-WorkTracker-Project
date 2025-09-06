@@ -1,0 +1,95 @@
+{
+  "datasets": [
+    {
+      "name": "dataset1",
+      "displayName": "kpi2",
+      "queryLines": [
+        "SELECT * FROM employee_json_project.kpis.kpi2"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "page1",
+      "displayName": "kpi2",
+      "layout": [
+        {
+          "widget": {
+            "name": "table1",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset1",
+                  "fields": [
+                    {
+                      "name": "employee_id",
+                      "expression": "`employee_id`"
+                    },
+                    {
+                      "name": "tasks_assigned",
+                      "expression": "`tasks_assigned`"
+                    },
+                    {
+                      "name": "total_hours",
+                      "expression": "`total_hours`"
+                    },
+                    {
+                      "name": "avg_hours_per_task",
+                      "expression": "`avg_hours_per_task`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "employee_id",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "employee_id"
+                },
+                "y": {
+                  "fields": [
+                    {
+                      "fieldName": "tasks_assigned",
+                      "displayName": "tasks_assigned"
+                    },
+                    {
+                      "fieldName": "total_hours",
+                      "displayName": "total_hours"
+                    },
+                    {
+                      "fieldName": "avg_hours_per_task",
+                      "displayName": "avg_hours_per_task"
+                    }
+                  ],
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}

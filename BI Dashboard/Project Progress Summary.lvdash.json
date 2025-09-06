@@ -1,0 +1,197 @@
+{
+  "datasets": [
+    {
+      "name": "dataset1",
+      "displayName": "kpi1",
+      "queryLines": [
+        "SELECT * FROM employee_json_project.kpis.kpi1"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "page1",
+      "displayName": "kpi1",
+      "layout": [
+        {
+          "widget": {
+            "name": "table1",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset1",
+                  "fields": [
+                    {
+                      "name": "sum(completed_tasks)",
+                      "expression": "SUM(`completed_tasks`)"
+                    },
+                    {
+                      "name": "sum(total_tasks)",
+                      "expression": "SUM(`total_tasks`)"
+                    },
+                    {
+                      "name": "total_hours_spent",
+                      "expression": "`total_hours_spent`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "fields": [
+                    {
+                      "fieldName": "sum(completed_tasks)",
+                      "displayName": "Sum of completed_tasks"
+                    },
+                    {
+                      "fieldName": "sum(total_tasks)",
+                      "displayName": "Sum of total_tasks"
+                    },
+                    {
+                      "fieldName": "sum(total_tasks)",
+                      "displayName": "Sum of total_tasks"
+                    }
+                  ]
+                },
+                "y": {
+                  "fieldName": "total_hours_spent",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "total_hours_spent"
+                }
+              },
+              "frame": {
+                "showTitle": false
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 1,
+            "width": 4,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "5eea7155",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Project Progress Summary"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "6c4471cb",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "dataset1",
+                  "fields": [
+                    {
+                      "name": "total_tasks",
+                      "expression": "`total_tasks`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "total_tasks",
+                  "displayName": "total_tasks"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total Project"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "ed4b1b8d",
+            "queries": [
+              {
+                "name": "dashboards/01f08ae3f3a91f7eb20f286c9f5c4c0b/datasets/01f08ae3f3aa12f7b7111916ea9650b1_project_id",
+                "query": {
+                  "datasetName": "dataset1",
+                  "fields": [
+                    {
+                      "name": "project_id",
+                      "expression": "`project_id`"
+                    },
+                    {
+                      "name": "project_id_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "project_id",
+                    "displayName": "project_id",
+                    "queryName": "dashboards/01f08ae3f3a91f7eb20f286c9f5c4c0b/datasets/01f08ae3f3aa12f7b7111916ea9650b1_project_id"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Project Id"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 2,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    }
+  }
+}
